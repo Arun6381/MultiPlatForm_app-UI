@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 namespace MauiApp1.Model
 {
    
-
-    public class Post
+    public class Note
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Body { get; set; }
-
+        public string Filename { get; set; }
+        public string Text { get; set; }
+        public DateTime Date { get; set; }
     }
-
 }

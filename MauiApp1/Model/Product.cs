@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MauiApp1.Model
 {
-   
 
-    public class Post
+
+    public class Product
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Body { get; set; }
-
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public string Description { get; set; }
     }
 
 }

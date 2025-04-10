@@ -1,0 +1,42 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MauiApp1.ViewModels"
+             x:Class="MauiApp1.Views.NotePage"
+             Title="NotePage">
+
+    <ContentPage.BindingContext>
+        <viewModels:NotesViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="10" Margin="10">
+
+        <Editor Placeholder="Enter your note"
+                Text="{Binding CurrentNoteText}"
+                HeightRequest="100" />
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
+            <Button Text="Save"
+                    Command="{Binding SaveNoteCommand}" />
+
+            <Button Grid.Column="1"
+                    Text="Delete All"
+                    Command="{Binding DeleteAllNotesCommand}" />
+            
+        </Grid>
+       
+
+        <CollectionView ItemsSource="{Binding Notes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5" Padding="10" BorderColor="Gray">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Date}" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="{Binding Text}" FontSize="12" LineBreakMode="TailTruncation" MaxLines="3"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

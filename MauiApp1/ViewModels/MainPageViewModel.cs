@@ -29,17 +29,31 @@ namespace MauiApp1.ViewModels
 
         [ObservableProperty]
         bool isLoading;
+        public int Count { get; set; } = 20;
 
         private async void LoadPosts()
         {
             IsLoading = true;
             var posts = await _apiService.GetPostsAsync();
-            foreach (var post in posts.Take(10))
+            foreach (var post in posts.Take(Count))
             {
                 Posts.Add(post);
             }
             IsLoading = false;
         }
+       
+        public async Task ReloadPosts()
+        {
+            IsLoading = true;
+            var posts = await _apiService.GetPostsAsync();
+            Posts.Clear(); // Clear existing ones
+            foreach (var post in posts.Take(Count))
+            {
+                Posts.Add(post);
+            }
+            IsLoading = false;
+        }
+
 
         [RelayCommand]
         async Task GoToDetail(Post post)

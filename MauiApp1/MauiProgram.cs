@@ -26,8 +26,14 @@ namespace MauiApp1
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageViewModel>();
             builder.Services.AddTransient<DetailPage>();
+            builder.Services.AddTransient<NotePage>();
+           
             builder.Services.AddTransient<DetailPageViewModel>();
          
+            builder.Services.AddTransient<NotesViewModel>();
+            builder.Services.AddSingleton<IProductService, SqlProductService>();
+            builder.Services.AddSingleton<ProductViewModel>();
+            builder.Services.AddSingleton<ProductsPage>();
 
             return builder.Build();
         }

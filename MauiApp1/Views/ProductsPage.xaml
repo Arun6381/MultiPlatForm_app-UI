@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.ProductsPage"
+             Title="Products">
+    <StackLayout Padding="20">
+        <Button Text="Load Products" Command="{Binding LoadProductsCommand}" />
+        <CollectionView ItemsSource="{Binding Products}" Margin="0,20,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Margin="5" Padding="10">
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" />
+                            <Label Text="{Binding Description}" />
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

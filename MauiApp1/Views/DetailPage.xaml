@@ -6,8 +6,12 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20">
+            <Button Text="Back" BackgroundColor="BlueViolet" TextColor="White" WidthRequest="80"  HorizontalOptions="Start"
+     Clicked="BacktoHomePage"/>
             <Label Text="{Binding SelectedPost.Title}" FontSize="24" FontAttributes="Bold" />
             <Label Text="{Binding SelectedPost.Body}" FontSize="16" />
+           
         </VerticalStackLayout>
+        
     </ScrollView>
 </ContentPage>

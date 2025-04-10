@@ -5,10 +5,15 @@
     xmlns:views="clr-namespace:MauiApp1.Views"
     x:Class="MauiApp1.AppShell">
 
-    <ShellContent Title="Home"
+    <TabBar>
+        <ShellContent Title="Home"
                   ContentTemplate="{DataTemplate views:MainPage}" />
     <ShellContent Title="Detail"
                   Route="DetailPage"
-                  ContentTemplate="{DataTemplate views:DetailPage}" />
-
+                  ContentTemplate="{DataTemplate views:DetailPage}" /> 
+        <ShellContent Title="Note"
+                  Route="NotePage"
+                  ContentTemplate="{DataTemplate views:NotePage}" />
+        <ShellContent Title="Products" ContentTemplate="{DataTemplate views:ProductsPage}" />
+    </TabBar>
 </Shell>

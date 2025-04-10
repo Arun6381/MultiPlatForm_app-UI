@@ -3,17 +3,36 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <VerticalStackLayout>
 
+        <!-- Button stays fixed at the top -->
+        <Button Text="Show more"
+                BackgroundColor="BlueViolet"
+                TextColor="White"
+                WidthRequest="100"
+                HorizontalOptions="Start"
+                Clicked="Showmore" />
+        
+        <Button Text="Ask Me"
+                BackgroundColor="BlueViolet"
+                TextColor="White"
+                WidthRequest="100"
+                HorizontalOptions="Start"
+                Clicked="GoToDetailsPage" />
 
+        <!-- Scrollable content -->
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding Posts}" SelectionMode="Single"
+                            SelectionChanged="OnSelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10" Padding="10" BackgroundColor="#eee">
+                            <Label Text="{Binding Title}" FontAttributes="Bold" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
 
-    <CollectionView ItemsSource="{Binding Posts}" SelectionMode="Single"
-                   SelectionChanged="OnSelectionChanged" >
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame Margin="10" Padding="10" BackgroundColor="#eee">
-                    <Label Text="{Binding Title}" FontAttributes="Bold" />
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    </VerticalStackLayout>
 </ContentPage>
