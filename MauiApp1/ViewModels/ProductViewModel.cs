@@ -31,5 +31,8 @@ namespace MauiApp1.ViewModels
             var items = await _productService.GetProductsAsync();
             Products = new ObservableCollection<Product>(items);
         }
+
+
+
     }
 }
